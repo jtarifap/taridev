@@ -1,6 +1,6 @@
-# taridev — Splash intro
+# taridev — web corporativa
 
-Pantalla de inicio (splash) de **taridev**: el logo y el nombre de la empresa aparecen centrados, con el icono de **Aura** orbitando a su alrededor. Construido con HTML, CSS y JavaScript nativos, sin dependencias ni proceso de compilación.
+Pantalla de inicio de **taridev**: el logo y el nombre de la empresa aparecen centrados, con el icono de **Aura** orbitando a su alrededor. Construido con HTML, CSS y JavaScript nativos, sin dependencias ni proceso de compilación.
 
 ## Demo
 
