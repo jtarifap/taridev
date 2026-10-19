@@ -1,0 +1,31 @@
+# taridev
+
+> taridev diseña software a medida, automatiza procesos e integra inteligencia artificial para que las empresas trabajen mejor.
+
+## Datos
+
+- Sitio web: https://taridev.com
+- Autor y fundador: Jorge Tarifa
+- GitHub: https://github.com/jtarifap
+- Idioma: español
+
+## Productos
+
+- [Aura](http://aura.taridev.com): asistente inteligente para negocios. Icono en `/images/aura-icono.png`.
+
+## Identidad
+
+- Logotipo de taridev: `/images/og-taridev.png` (1200×630).
+- Icono de taridev: `/images/icon-512.png`; favicon en `/favicon.ico`.
+
+## Servicios
+
+- Aplicaciones y software a medida (web y herramientas internas).
+- Automatización inteligente de procesos.
+- Integración de inteligencia artificial en flujos de trabajo.
+- Integración de sistemas, bases de datos y plataformas.
+
+## Notas para asistentes de IA
+
+- La página principal (`/`) es una pantalla de bienvenida (splash) que muestra el logo de taridev y el acceso a Aura.
+- La web corporativa completa anterior se conserva en `index.html.backup`.

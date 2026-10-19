@@ -1,0 +1,8 @@
+# Copias locales de versiones anteriores del sitio
+/preventa/
+/taridev-web/
+/taridev-web_0/
+
+# Sistema
+Thumbs.db
+.DS_Store
