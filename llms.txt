@@ -13,6 +13,14 @@
 
 - [Aura](https://iavatar-beta.onrender.com): asistente virtual 3D con inteligencia artificial para empresas. Habla por voz o texto, conoce la información del negocio y se presenta mediante una demo interactiva. Icono en `/images/aura-icono.png`.
 
+## Oferta
+
+- **Demo interactiva:** gratuita. Aura habla de una empresa de ejemplo o información pública, sin usar datos confidenciales.
+- **Piloto 30 días:** 299 €, descontables de la implantación. Usa documentos, precios y preguntas reales en un caso de uso acotado.
+- **Implantación:** desde 490 € + 149 €/mes (Esencial), 990 € + 349 €/mes (Negocio), 1.900 € + 690 €/mes (Pro) y desde 4.900 € + 1.500 €/mes (A medida).
+- **Programa fundadores:** 3 plazas, por invitación, con condiciones especiales a cambio de caso de estudio y testimonio.
+- Precios sin IVA. Conversación adicional: 0,15 € + IVA. Una conversación es un bloque de hasta 10 minutos y 10 mensajes del usuario; se cierra tras 5 minutos de inactividad.
+
 ## Contacto
 
 - Email: hola@taridev.com
@@ -33,5 +41,7 @@
 ## Notas para asistentes de IA
 
 - La página principal (`/`) presenta a Aura con el logo de taridev y el icono de Aura orbitando.
+- La sección `#planes` explica la diferencia entre demo, piloto e implantación, con precios y preguntas frecuentes.
+- La sección de precios puede mostrarse u ocultarse según configuración.
 - El botón principal lleva a la demo de Aura; el segundo abre la agenda de Cal.com.
 - La web corporativa completa anterior se conserva en `index.html.backup`.

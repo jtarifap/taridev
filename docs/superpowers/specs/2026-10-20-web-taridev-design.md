@@ -1,7 +1,7 @@
 # Diseño — Web de taridev y demo de Aura
 
 - **Fecha:** 2026-10-20
-- **Estado:** fase 1 implementada; fase 2 (demo guiada) pendiente
+- **Estado:** fase 1 implementada con sección de precios; fase 2 (demo guiada) pendiente
 - **Repos:** `taridev-web` (landing) y la app de Aura (demo)
 - **Idioma:** español (España)
 
@@ -40,7 +40,7 @@ La demo hace la venta. La landing solo abre la puerta.
 
 ### No objetivos (v1)
 
-- Web corporativa con servicios, casos, precios, blog o equipo.
+- Web corporativa con casos, blog o equipo. La sección de precios ya forma parte de la landing.
 - Login, área privada o gestión de cuentas.
 - Selector de idioma.
 - Formulario de contacto con backend propio.
@@ -74,7 +74,9 @@ La demo hace la venta. La landing solo abre la puerta.
 - **Botón principal:** “Probar Aura”.
 - **Apoyo bajo el botón:** “Demo interactiva · sin instalar nada · `hola@taridev.com`”.
 - **Contacto secundario:** “Hablar con nosotros” (agenda) y `hola@taridev.com`.
-- **Pie:** no hay pie en v1; el email queda bajo los botones.
+- **Sección `#planes`:** explica demo, piloto e implantación; incluye precios, alcance, FAQ y CTA.
+- **Precios ocultables:** `window.TARIDEV_SHOW_PRICING` en `index.html` muestra u oculta la sección `#planes` y el enlace “Ver planes” mediante la clase `pricing-hidden`.
+- **Pie:** no hay pie en v1; el email queda bajo los botones y al final de la sección de planes.
 
 El tooltip actual de Aura se mantiene como refuerzo en escritorio, pero deja de ser el único sitio donde se explica el producto. El tooltip de taridev puede conservar el email.
 
@@ -107,6 +109,7 @@ El tooltip actual de Aura se mantiene como refuerzo en escritorio, pero deja de 
 - Mantener `Organization` y `WebSite` del JSON-LD.
 - Actualizar `SoftwareApplication` de Aura con la URL real de la demo.
 - La imagen Open Graph actual (solo logo) se puede mantener en v1; una imagen con Aura queda para después.
+- La sección de precios no lleva JSON-LD `Offer` por ahora: los precios y el alcance pueden cambiar y no conviene consolidarlos en datos estructurados hasta estabilizar la oferta.
 
 ## 7. Demo de Aura (app de Aura)
 
@@ -179,6 +182,7 @@ El guion es una guía, no un texto rígido: Aura puede reformular, pero no debe 
 
 - Titular, subtítulo, botón de contacto, email y agenda de Cal.com.
 - Botón “Probar Aura” apuntando a la app actual, que ya funciona como demo del producto.
+- Sección `#planes` con demo, piloto, implantación, precios, FAQ y programa fundadores.
 - Objetivo: que la web deje de ser una splash muda y empiece a captar conversaciones.
 
 ### Fase 2 — Demo
@@ -190,7 +194,7 @@ El guion es una guía, no un texto rígido: Aura puede reformular, pero no debe 
 ### Fase 3 — Crecimiento
 
 - Nuevas apps orbitando el logo.
-- Secciones debajo de la primera pantalla cuando haya contenido real (casos, servicios, etc.).
+- Nuevas secciones cuando haya contenido real (casos, servicios, etc.). La sección de precios ya está implementada y puede ocultarse con `window.TARIDEV_SHOW_PRICING`.
 - La estructura de la órbita ya reserva el espacio.
 
 ## 10. Decisiones tomadas por el usuario
@@ -203,6 +207,11 @@ El guion es una guía, no un texto rígido: Aura puede reformular, pero no debe 
 - El cierre debe ofrecer email y otro medio de contacto.
 - No se publica el teléfono personal.
 - El segundo canal será una agenda (Cal.com/Calendly).
+- La landing debe explicar con claridad la diferencia entre demo, piloto e implantación.
+- Se publican precios exactos para Esencial, Negocio y Pro; A medida se muestra “desde”.
+- El piloto de 30 días cuesta 299 € y se descuenta de la implantación.
+- El programa fundadores es por invitación y no publica precio.
+- La sección de precios debe poder ocultarse con una variable JavaScript.
 
 ## 11. Decisiones del builder (revisables)
 
@@ -213,6 +222,13 @@ El guion es una guía, no un texto rígido: Aura puede reformular, pero no debe 
 - La landing no lleva lista de características; la demo las cuenta.
 - Se mantiene la órbita y la paleta actual; no se introduce un framework ni una librería visual nueva.
 - Agenda: Cal.com (`https://cal.com/taridev/15min?overlayCalendar=true`).
+- Nombres de planes: Esencial, Negocio, Pro y A medida.
+- Precios públicos: 490 € + 149 €/mes; 990 € + 349 €/mes; 1.900 € + 690 €/mes; desde 4.900 € + 1.500 €/mes.
+- La demo es gratuita y no usa datos internos. Si se usan datos reales, es piloto.
+- El piloto cuesta 299 € y se descuenta de la implantación.
+- Una conversación facturable es un bloque de hasta 10 minutos y 10 mensajes del usuario; se cierra tras 5 minutos de inactividad. Extra: 0,15 € + IVA con Piper local; revisar a 0,25-0,30 € + IVA al migrar a TTS cloud estándar.
+- El programa fundadores se mantiene fuera de la landing con precio; solo se menciona por invitación.
+- La sección de planes se oculta con `window.TARIDEV_SHOW_PRICING = false` y la clase `pricing-hidden`.
 
 ## 12. Restricciones
 
@@ -222,6 +238,8 @@ El guion es una guía, no un texto rígido: Aura puede reformular, pero no debe 
 - `aura.taridev.com` no resuelve a 2026-10-20; hasta arreglar el DNS, la demo puede usar la URL de Render.
 - La demo no debe prometer funciones que Aura todavía no tenga; si alguna es simulada, se indica.
 - El presupuesto de tokens/tiempo de la demo debe estar acotado.
+- Los precios de la landing deben coincidir con `docs/sales/precios-y-alcance.md`.
+- La sección de precios puede ocultarse, pero no debe quedar un enlace “Ver planes” visible sin la sección.
 
 ## 13. Riesgos
 
