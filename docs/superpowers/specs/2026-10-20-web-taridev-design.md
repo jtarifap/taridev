@@ -102,8 +102,8 @@ El tooltip actual de Aura se mantiene como refuerzo en escritorio, pero deja de 
 
 ### 6.5 SEO y metadatos
 
-- `title`: “Aura — Asistente virtual 3D con IA para empresas | taridev”.
-- `description`: “Aura es el asistente virtual 3D de taridev: IA que conoce la información de tu empresa y atiende por voz o texto. Prueba la demo.”
+- `title`: “taridev — Software, apps e IA a medida”.
+- `description`: “taridev diseña software y apps a medida e integra IA. Descubre Aura, su asistente virtual 3D para empresas.”
 - Mantener `Organization` y `WebSite` del JSON-LD.
 - Actualizar `SoftwareApplication` de Aura con la URL real de la demo.
 - La imagen Open Graph actual (solo logo) se puede mantener en v1; una imagen con Aura queda para después.
