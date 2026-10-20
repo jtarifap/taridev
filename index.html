@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f7f3ef">
 
-  <title>taridev — Software e inteligencia artificial a medida</title>
-  <meta name="description" content="taridev diseña software a medida, automatiza procesos e integra inteligencia artificial para que las empresas trabajen mejor. Descubre Aura, nuestro asistente inteligente.">
+  <title>Aura — Asistente virtual 3D con IA para empresas | taridev</title>
+  <meta name="description" content="Aura es el asistente virtual 3D de taridev: IA que conoce la información de tu empresa y atiende por voz o texto. Prueba la demo.">
   <meta name="author" content="Jorge Tarifa">
-  <meta name="keywords" content="taridev, software a medida, desarrollo de aplicaciones, automatización de procesos, inteligencia artificial, IA, Aura, Jorge Tarifa">
+  <meta name="keywords" content="taridev, Aura, asistente virtual 3D, avatar 3D, inteligencia artificial, IA para empresas, atención al cliente, software a medida">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="googlebot" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://taridev.com/">
@@ -17,8 +17,8 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="taridev">
   <meta property="og:locale" content="es_ES">
-  <meta property="og:title" content="taridev — Software e inteligencia artificial a medida">
-  <meta property="og:description" content="Diseñamos software a medida, automatizamos procesos e integramos inteligencia artificial para que las empresas trabajen mejor. Descubre Aura, nuestro asistente inteligente.">
+  <meta property="og:title" content="Aura — Asistente virtual 3D con IA para empresas | taridev">
+  <meta property="og:description" content="Aura es el asistente virtual 3D de taridev: IA que conoce la información de tu empresa y atiende por voz o texto. Prueba la demo.">
   <meta property="og:url" content="https://taridev.com/">
   <meta property="og:image" content="https://taridev.com/images/og-taridev.png">
   <meta property="og:image:alt" content="Logo de taridev">
@@ -27,8 +27,8 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="taridev — Software e inteligencia artificial a medida">
-  <meta name="twitter:description" content="Diseñamos software a medida, automatizamos procesos e integramos inteligencia artificial. Descubre Aura, nuestro asistente inteligente.">
+  <meta name="twitter:title" content="Aura — Asistente virtual 3D con IA para empresas | taridev">
+  <meta name="twitter:description" content="Aura es el asistente virtual 3D de taridev: IA que conoce la información de tu empresa y atiende por voz o texto. Prueba la demo.">
   <meta name="twitter:image" content="https://taridev.com/images/og-taridev.png">
   <meta name="twitter:image:alt" content="Logo de taridev">
 
@@ -70,8 +70,8 @@
         "@type": "SoftwareApplication",
         "@id": "https://taridev.com/#aura",
         "name": "Aura",
-        "description": "Asistente inteligente de taridev para tu negocio.",
-        "url": "http://aura.taridev.com",
+        "description": "Asistente virtual 3D con inteligencia artificial para empresas.",
+        "url": "https://iavatar-beta.onrender.com",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Web",
         "author": {
@@ -195,11 +195,10 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%) rotate(90deg);
+      transform: translate(-50%, -50%);
       width: clamp(280px, 70vw, 560px);
       height: clamp(160px, 40vw, 340px);
       border-radius: 50%;
-      animation: orbit-rotate 12s linear infinite;
       pointer-events: none;
     }
 
@@ -207,6 +206,7 @@
     .splash-brand:hover ~ .orbit-ring,
     .orbit-container:hover .orbit-ring,
     .orbit-container:hover .orbit-item,
+    .orbit-container:focus-within .orbit-item,
     .taridev-tooltip-wrap:hover ~ .orbit-ring {
       animation-play-state: paused;
     }
@@ -215,16 +215,16 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      width: clamp(56px, 12vw, 80px);
-      height: clamp(56px, 12vw, 80px);
+      width: clamp(48px, 11vw, 80px);
+      height: clamp(48px, 11vw, 80px);
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       pointer-events: auto;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      z-index: 10;
-      animation: orbit-ellipse 6s linear infinite, orbit-spin 6s linear infinite;
+      z-index: 1;
+      animation: orbit-ellipse 6s linear infinite;
       transform-origin: center center;
     }
 
@@ -241,7 +241,7 @@
 
     .orbit-item:hover {
       animation-play-state: paused;
-      transform: translate(-50%, -50%) translate(0, clamp(-280px, -35vw, -140px)) rotate(0deg) scale(1.15);
+      transform: translate(-50%, -50%) translate(0, calc(-1 * var(--orbit-y))) rotate(0deg) scale(1.15);
       z-index: 20;
     }
 
@@ -324,6 +324,7 @@
 
     .taridev-tooltip-wrap {
       position: relative;
+      z-index: 2;
       cursor: pointer;
       display: flex;
       flex-direction: column;
@@ -387,64 +388,277 @@
       transform: translateX(-50%) translateY(0);
     }
 
-    @keyframes orbit-rotate {
-      from { transform: translate(-50%, -50%) rotate(0deg); }
-      to { transform: translate(-50%, -50%) rotate(360deg); }
+  </style>
+  <style>
+    .splash-screen {
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(24px, 5vw, 72px);
+      gap: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    .splash-hero {
+      width: min(1180px, 100%);
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      align-items: center;
+      gap: clamp(24px, 5vw, 72px);
+    }
+
+    .splash-copy {
+      max-width: 560px;
+    }
+
+    .splash-eyebrow {
+      margin: 0 0 14px;
+      font: 700 11px/1 var(--body);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #a66b5e;
+    }
+
+    .splash-title {
+      margin: 0 0 18px;
+      font: 800 clamp(34px, 4.6vw, 62px)/1.05 var(--serif);
+      letter-spacing: -0.035em;
+      color: var(--ink);
+    }
+
+    .splash-title span {
+      color: #bd7667;
+    }
+
+    .splash-lede {
+      margin: 0 0 28px;
+      max-width: 46ch;
+      font: 400 clamp(16px, 1.5vw, 19px)/1.55 var(--body);
+      color: var(--muted);
+    }
+
+    .splash-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .splash-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 22px;
+      border-radius: 999px;
+      font: 600 15px/1 var(--body);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .splash-btn-primary {
+      background: var(--ink);
+      color: var(--paper);
+      box-shadow: 0 10px 24px rgba(41, 36, 33, 0.16);
+    }
+
+    .splash-btn-primary:hover,
+    .splash-btn-primary:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(41, 36, 33, 0.22);
+    }
+
+    .splash-btn-secondary {
+      border: 1px solid rgba(41, 36, 33, 0.2);
+      color: var(--ink);
+      background: transparent;
+    }
+
+    .splash-btn-secondary:hover,
+    .splash-btn-secondary:focus-visible {
+      background: rgba(41, 36, 33, 0.06);
+    }
+
+    .splash-note {
+      margin: 18px 0 0;
+      font: 400 13px/1.5 var(--body);
+      color: var(--muted);
+    }
+
+    .splash-note a {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .splash-visual {
+      --orbit-x: clamp(105px, 22vw, 210px);
+      --orbit-y: clamp(130px, 22vw, 280px);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(2 * var(--orbit-y) + 80px);
+    }
+
+    .splash-visual .orbit-container {
+      width: min(100%, calc(2 * var(--orbit-y) + 80px));
+      height: calc(2 * var(--orbit-y) + 80px);
+      min-height: 0;
+      justify-content: center;
+    }
+
+    .splash-visual .orbit-ring {
+      width: calc(2 * var(--orbit-y));
+      height: calc(2 * var(--orbit-x));
+    }
+
+    .splash-visual .orbit-item {
+      animation: orbit-ellipse 6s linear infinite;
+    }
+
+    .splash-visual .orbit-item:hover {
+      transform: translate(-50%, -50%) translate(0, calc(-1 * var(--orbit-y))) rotate(0deg) scale(1.15);
     }
 
     @keyframes orbit-ellipse {
-      0%   { transform: translate(-50%, -50%) translate(0, clamp(-280px, -35vw, -140px)) rotate(0deg); }
-      25%  { transform: translate(-50%, -50%) translate(clamp(160px, 20vw, 80px), 0) rotate(90deg); }
-      50%  { transform: translate(-50%, -50%) translate(0, clamp(280px, 35vw, 140px)) rotate(180deg); }
-      75%  { transform: translate(-50%, -50%) translate(clamp(-160px, -20vw, -80px), 0) rotate(270deg); }
-      100% { transform: translate(-50%, -50%) translate(0, clamp(-280px, -35vw, -140px)) rotate(360deg); }
+      0%   { transform: translate(-50%, -50%) translate(0, calc(-1 * var(--orbit-y))) rotate(0deg); }
+      25%  { transform: translate(-50%, -50%) translate(var(--orbit-x), 0) rotate(90deg); }
+      50%  { transform: translate(-50%, -50%) translate(0, var(--orbit-y)) rotate(180deg); }
+      75%  { transform: translate(-50%, -50%) translate(calc(-1 * var(--orbit-x)), 0) rotate(270deg); }
+      100% { transform: translate(-50%, -50%) translate(0, calc(-1 * var(--orbit-y))) rotate(360deg); }
     }
 
-    @keyframes orbit-spin {
-      from { transform: translate(-50%, -50%) translate(0, clamp(-180px, -35vw, -40px)) rotate(0deg); }
-      to   { transform: translate(-50%, -50%) translate(0, clamp(-180px, -35vw, -40px)) rotate(360deg); }
+    .splash-btn:focus-visible,
+    .orbit-item:focus-visible {
+      outline: 2px solid var(--coral);
+      outline-offset: 3px;
     }
-    
+
+    @media (max-width: 980px) {
+      .splash-hero {
+        grid-template-columns: 1fr;
+        gap: 4px;
+        text-align: center;
+      }
+
+      .splash-copy {
+        order: 2;
+        margin: 0 auto;
+      }
+
+      .splash-visual {
+        order: 1;
+      }
+
+      .splash-actions {
+        justify-content: center;
+      }
+
+      .splash-lede {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .splash-note {
+        text-align: center;
+      }
+    }
+
+    @media (min-width: 981px) {
+      .splash-visual {
+        --orbit-x: clamp(150px, 16vw, 210px);
+      }
+
+      .splash-visual .splash-name {
+        font-size: 64px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .splash-screen {
+        padding: 20px;
+      }
+
+      .splash-visual {
+        --orbit-x: 112px;
+        --orbit-y: 130px;
+      }
+
+      .splash-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .splash-btn {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .orbit-ring,
+      .orbit-item,
+      .splash-brand-mark,
+      .splash-name {
+        animation: none !important;
+      }
+
+      .splash-name {
+        opacity: 1;
+        transform: none;
+      }
+
+      .splash-brand-mark {
+        transform: skew(-18deg);
+      }
+
+      .splash-visual .orbit-item {
+        transform: translate(-50%, -50%) translate(0, calc(-1 * var(--orbit-y))) rotate(0deg);
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="splash-screen" role="img" aria-label="taridev cargando">
-    <div class="splash-brand">
-      <div class="orbit-container">
-        <div class="taridev-tooltip-wrap">
-          <div class="splash-brand-mark" aria-hidden="true">
-            <span></span><span></span><span></span>
-          </div>
-          <div class="splash-name">tari<span>dev</span></div>
-          <div class="taridev-tooltip" aria-hidden="true">
-            <strong>taridev</strong>
-            <p>Software e inteligencia artificial a medida</p>
-            <a href="mailto:hola@taridev.com"><u>hola@taridev.com</u></a>
-          </div>
+  <main class="splash-screen">
+    <div class="splash-hero">
+      <section class="splash-copy" aria-labelledby="splash-title">
+        <p class="splash-eyebrow">taridev presenta</p>
+        <h1 class="splash-title" id="splash-title"><span>Aura</span>, el asistente virtual 3D que conoce tu empresa</h1>
+        <p class="splash-lede">IA con la información de tu negocio, por voz o texto. Habla con ella y descubre lo que puede hacer por ti.</p>
+        <div class="splash-actions">
+          <a class="splash-btn splash-btn-primary" href="https://iavatar-beta.onrender.com">Probar Aura</a>
+          <a class="splash-btn splash-btn-secondary" href="https://cal.com/taridev/15min?overlayCalendar=true" target="_blank" rel="noopener">Hablar con nosotros</a>
         </div>
-        
-        <div class="orbit-ring" aria-hidden="true">
-          <div class="orbit-item aura-item" data-url="http://aura.taridev.com" data-title="Aura" data-desc="Asistente inteligente para tu negocio" onclick="openApp(this)">
-            <img src="images/aura-icono.png" alt="Aura" class="orbit-icon">
-            <div class="orbit-tooltip">
-              <strong>Aura</strong>
-              <p>Asistente inteligente para tu negocio</p>
+        <p class="splash-note">Demo interactiva · sin instalar nada · <a href="mailto:hola@taridev.com">hola@taridev.com</a></p>
+      </section>
+
+      <section class="splash-visual" aria-label="Aura orbitando el logo de taridev">
+        <div class="orbit-container">
+          <div class="taridev-tooltip-wrap">
+            <div class="splash-brand-mark" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="splash-name">tari<span>dev</span></div>
+            <div class="taridev-tooltip" aria-hidden="true">
+              <strong>taridev</strong>
+              <p>Software e inteligencia artificial a medida</p>
+              <a href="mailto:hola@taridev.com"><u>hola@taridev.com</u></a>
             </div>
           </div>
+
+          <div class="orbit-ring">
+            <a class="orbit-item aura-item" href="https://iavatar-beta.onrender.com" aria-label="Probar la demo de Aura">
+              <img src="images/aura-icono.png" alt="Aura" class="orbit-icon">
+              <div class="orbit-tooltip" aria-hidden="true">
+                <strong>Aura</strong>
+                <p>Asistente inteligente para tu negocio</p>
+              </div>
+            </a>
+          </div>
         </div>
-      </div>
-      
-     <!--<div class="splash-loader" aria-hidden="true">
-        <div class="splash-loader-bar"></div>
-      </div>-->   
-     </div>
-  </div>
-  <script>
-    function openApp(el) {
-      const url = el.dataset.url;
-      if (url) window.open(url, '_blank', 'noopener,noreferrer');
-    }
-  </script>
+      </section>
+    </div>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

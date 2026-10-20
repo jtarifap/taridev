@@ -1,6 +1,8 @@
-# taridev — web corporativa
+# taridev — landing de Aura
 
-Pantalla de inicio de **taridev**: el logo y el nombre de la empresa aparecen centrados, con el icono de **Aura** orbitando a su alrededor. Construido con HTML, CSS y JavaScript nativos, sin dependencias ni proceso de compilación.
+Landing de **taridev** para presentar **Aura**, su asistente virtual 3D con IA para empresas. Construida con HTML, CSS y JavaScript nativos, sin dependencias ni proceso de compilación.
+
+La página combina el logo de taridev con el icono de Aura orbitando, un titular visible, una llamada a probar Aura y un segundo acceso para hablar con taridev por Cal.com.
 
 ## Demo
 
@@ -8,21 +10,24 @@ Abre `index.html` en cualquier navegador moderno.
 
 ## Características
 
-- **Splash centrado**: logo animado (pulso) y nombre `taridev` con entrada suave.
-- **Órbita de Aura**: el icono `images/aura-icono.png` recorre una elipse alrededor del logo + texto y gira sobre sí mismo.
-- **Tooltips**: al pasar el ratón sobre el logo/texto o sobre Aura aparece una ficha informativa.
-  - taridev — *Software e inteligencia artificial a medida*
-  - Aura — *Asistente inteligente para tu negocio*
-- **Pausa al interactuar**: la órbita se detiene al posicionar el ratón sobre taridev o sobre Aura.
-- **Acceso directo**: al hacer clic en Aura se abre <http://aura.taridev.com> en una pestaña nueva.
-- **Responsive**: tamaños con `clamp()`, se adapta a móvil, tablet y escritorio.
-- **Sin scroll accidental**: `overflow: hidden` evita barras de desplazamiento cuando el icono pasa cerca del borde.
+- **Hero responsive**: dos columnas en escritorio y una columna en móvil/tablet.
+- **Órbita de Aura**: el icono `images/aura-icono.png` recorre una elipse alrededor del logo y el nombre de taridev.
+- **Propuesta visible**: titular, subtítulo y botones no dependen de `hover`.
+- **Acciones**:
+  - **Probar Aura** → <https://iavatar-beta.onrender.com>.
+  - **Hablar con nosotros** → <https://cal.com/taridev/15min?overlayCalendar=true>.
+  - Email → <mailto:hola@taridev.com>.
+- **Tooltips**: al pasar el ratón sobre taridev o Aura aparece una ficha informativa.
+- **Pausa al interactuar**: la órbita se detiene al posicionar el ratón sobre el logo o sobre Aura, y al enfocar el enlace con el teclado.
+- **Accesibilidad**: Aura es un enlace real, con foco visible y `aria-label`; se respeta `prefers-reduced-motion`.
+- **Responsive**: tamaños con `clamp()`, órbita con variables CSS y botones a ancho completo en móvil.
+- **Sin scroll horizontal**: la órbita se recorta en el eje X, pero la página puede desplazarse en vertical si el contenido no cabe.
 - **Extensible**: preparado para añadir más apps orbitando alrededor de taridev.
 
 ## Estructura
 
 ```
-index.html          Splash, metadatos SEO y lógica de la órbita (inline)
+index.html          Landing, estilos de la órbita y metadatos SEO (inline)
 styles.css          Variables de color, tipografía y estilos base
 script.js           Utilidades heredadas (menú móvil y año dinámico)
 llms.txt            Resumen del sitio para asistentes de IA
@@ -38,46 +43,47 @@ taridev-web_0/      Copia de versión anterior
 
 `index.html` incluye:
 
-- `title`, `description`, `author`, `canonical` y directivas `robots`.
+- `title`, `description`, `author`, `canonical` y directivas `robots`, centrados en Aura.
 - Open Graph y Twitter Cards para compartir en redes.
 - Datos estructurados JSON-LD (`Organization`, `WebSite`, `SoftwareApplication` para Aura).
 - Favicon y `apple-touch-icon` con el icono de taridev (`favicon.ico`, `images/favicon-*`, `images/apple-touch-icon.png`).
 - Imagen Open Graph/Twitter `images/og-taridev.png` (1200×630) con el logotipo de taridev.
-- `llms.txt` con un resumen del negocio y sus servicios para rastreadores de IA.
+- `llms.txt` con un resumen del sitio y de Aura para rastreadores de IA.
 
 Tras publicar, valida los datos estructurados y comparte la URL para que se actualicen las previsualizaciones.
 
 ## Añadir más apps en órbita
 
-Añade un nuevo `.orbit-item` dentro de `.orbit-ring`:
+Añade un nuevo enlace dentro de `.orbit-ring`:
 
 ```html
-<div class="orbit-item" data-url="https://otra-app.taridev.com" onclick="openApp(this)">
+<a class="orbit-item" href="https://otra-app.taridev.com" aria-label="Abrir Otra app">
   <img src="images/otra-app.png" alt="Otra app" class="orbit-icon">
   <div class="orbit-tooltip">
     <strong>Otra app</strong>
     <p>Descripción breve de la aplicación</p>
   </div>
-</div>
+</a>
 ```
 
 Para repartir varios iconos por la elipse, desfasa su animación con un retardo negativo:
 
 ```html
-<div class="orbit-item" style="animation-delay: -3s, -3s" ...>
+<a class="orbit-item" style="animation-delay: -3s" ...>
 ```
 
 ## Personalización
 
 | Qué | Dónde |
 | --- | --- |
-| Velocidad de la órbita y del giro | `.orbit-item` → `animation: orbit-ellipse 6s ..., orbit-spin 6s ...` |
-| Tamaño de la elipse | `@keyframes orbit-ellipse` (valores de `clamp()`) |
+| Velocidad de la órbita | `.splash-visual .orbit-item` → `animation: orbit-ellipse 6s linear infinite` |
+| Tamaño de la elipse | `.splash-visual` → variables `--orbit-x` y `--orbit-y` |
 | Tamaño del icono | `.orbit-item` → `width` / `height` |
 | Texto de los tooltips | HTML de `.orbit-tooltip` y `.taridev-tooltip` |
 | Colores y tipografía | Variables en `:root` de `styles.css` |
+| Enlaces de acción | `index.html` → botones `.splash-btn` y enlace de Aura |
 
-> La velocidad de `orbit-ellipse` y `orbit-spin` debe mantenerse sincronizada para que el icono no "patine" al girar.
+> La animación `orbit-ellipse` incluye el giro del icono; no hay que sincronizar una segunda animación.
 
 ## Publicar en GitHub Pages
 
@@ -85,7 +91,7 @@ Para repartir varios iconos por la elipse, desfasa su animación con un retardo 
    ```bash
    git init
    git add .
-   git commit -m "taridev splash"
+   git commit -m "landing de Aura"
    git branch -M main
    git remote add origin https://github.com/<usuario>/<repo>.git
    git push -u origin main
@@ -98,5 +104,6 @@ También funciona en cualquier hosting estático (Render, Netlify, Vercel o host
 
 ## Notas
 
-- `http://aura.taridev.com` usa HTTP; si el servicio migra a HTTPS, actualiza el `data-url` para evitar contenido mixto.
+- La demo apunta a `https://iavatar-beta.onrender.com`; cuando `aura.taridev.com` resuelva y exista el modo demo, actualiza los enlaces a `https://aura.taridev.com/?demo=1`.
+- La agenda usa Cal.com: `https://cal.com/taridev/15min?overlayCalendar=true`.
 - `index.html.backup` conserva la versión completa de la web corporativa por si necesitas recuperarla.
