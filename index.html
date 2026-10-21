@@ -500,6 +500,25 @@
       text-underline-offset: 3px;
     }
 
+    .splash-ai-note {
+      max-width: 520px;
+      padding: 12px 16px;
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--coral);
+      border-radius: 10px;
+      background: var(--white);
+      color: #6d5148;
+      font-size: 12px;
+    }
+
+    .splash-ai-note strong {
+      color: var(--ink);
+    }
+
+    .footer-brand span {
+      color: #bd7667;
+    }
+
     .splash-visual {
       --orbit-x: clamp(105px, 22vw, 210px);
       --orbit-y: clamp(130px, 22vw, 280px);
@@ -1045,6 +1064,7 @@
         </div>
         <p class="splash-note">Demo interactiva · sin instalar nada · <a href="mailto:hola@taridev.com">hola@taridev.com</a></p>
         <p class="splash-note"><a href="#planes" data-pricing>Ver planes y precios ↓</a></p>
+        <p class="splash-note splash-ai-note" id="aviso-ia"><strong>Aura es una inteligencia artificial</strong>, no es una persona y puede equivocarse. Al abrir la demo se te pedirá aceptar el aviso. <a href="privacidad.html">Privacidad</a> · <a href="terminos.html">Términos</a></p>
       </section>
 
       <section class="splash-visual" aria-label="Aura orbitando el logo de taridev">
@@ -1245,6 +1265,19 @@
       </div>
     </section>
   </main>
+  <footer class="footer">
+    <div class="section-wrap">
+      <div class="footer-main">
+        <span class="footer-brand">tari<span>dev</span></span>
+        <p>Software e IA a medida. Aura es un asistente virtual con inteligencia artificial: no es una persona y puede equivocarse.</p>
+        <a class="footer-email" href="mailto:hola@taridev.com">hola@taridev.com</a>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 taridev · Todos los derechos reservados.</span>
+        <span><a href="privacidad.html">Política de privacidad</a> · <a href="terminos.html">Términos de uso</a> · <a href="#aviso-ia">Aviso de IA</a></span>
+      </div>
+    </div>
+  </footer>
   <script src="script.js"></script>
 </body>
 </html>
