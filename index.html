@@ -682,10 +682,32 @@
       border-left: 0
     }
 
+    .strip>div:nth-child(2) {
+      border-left: 0
+    }
+
     .strip p {
       margin: 12px 0 0;
       font: 400 13px/1.7 var(--mono);
       color: var(--ink)
+    }
+
+    .strip-feature {
+      grid-column: 1 / -1
+    }
+
+    .strip-feature h2 {
+      max-width: none;
+      margin: 0;
+      font: 700 clamp(22px, 3vw, 30px)/1.1 var(--sans);
+      letter-spacing: -.03em
+    }
+
+    .strip-feature p {
+      max-width: 100ch;
+      margin: 12px 0 0;
+      font: 400 15px/1.7 var(--sans);
+      color: var(--mute)
     }
 
     @media(max-width:1000px) {
@@ -693,11 +715,12 @@
         grid-template-columns: 1fr 1fr
       }
 
-      .strip>div:nth-child(3) {
+      .strip>div:nth-child(2),
+      .strip>div:nth-child(4) {
         border-left: 0
       }
 
-      .strip>div:nth-child(n+3) {
+      .strip>div:nth-child(n+2) {
         border-top: 1px solid var(--line)
       }
     }
@@ -765,6 +788,10 @@
     </div>
 
     <div class="strip">
+      <div class="strip-feature">
+        <h2>El desarrollo de software en la era de la IA</h2>
+        <p>La IA ya es parte inseparable del desarrollo de software: hoy el valor del profesional no está solo en dominar lenguajes, frameworks o herramientas, sino en entender problemas, liderar soluciones y combinar experiencia técnica, criterio, iniciativa y colaboración, usando la IA para multiplicar su capacidad de desarrollo.</p>
+      </div>
       <div><span class="lab">Desarrollo y Herramientas</span>
         <p>.NET · Python · Javascript · TypeScript · three.js · OpenCode · VS Code · DBeaver</p>
       </div>
